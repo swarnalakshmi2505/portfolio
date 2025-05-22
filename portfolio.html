@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarna Lakshmi - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #334155;
+            background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+            min-height: 100vh;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        /* Header/Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 5rem 1rem 8rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 48rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+        
+        .hero h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            font-weight: 500;
+            padding: 0.625rem 1rem;
+            border-radius: 0.375rem;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: white;
+            padding: 5rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 5rem;
+            background-color: #2563eb;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .skill-group h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .badge:hover {
+            opacity: 0.9;
+        }
+        
+        .badge-primary {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .badge-secondary {
+            background-color: #64748b;
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem 8rem;
+        }
+        
+        .contact-card {
+            max-width: 36rem;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+            margin-right: 1rem;
+        }
+        
+        .contact-icon svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .contact-label {
+            color: #64748b;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .contact-value {
+            font-size: 1.125rem;
+            word-break: break-all;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <h1 class="logo">Swarna Lakshmi</h1>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero container">
+        <div class="hero-content">
+            <h1>Swarna Lakshmi</h1>
+            <h2>Aspiring Full-Stack Developer</h2>
+            <div class="card">
+                <p>
+                    Aspiring Full-Stack Developer with strong frontend skills in HTML, CSS, JavaScript, Python, and SQL, and familiar with Java. 
+                    Passionate about UI/UX design, responsive web development, and creating seamless user experiences. 
+                    Quick learner, results-driven, and seeking a technical internship to apply and grow in a real-world environment.
+                </p>
+            </div>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Skills</h2>
+            <div class="skills-grid">
+                <div class="card skill-group fade-in">
+                    <h3>Proficient</h3>
+                    <div class="badge-container">
+                        <span class="badge badge-primary">Python</span>
+                        <span class="badge badge-primary">HTML</span>
+                        <span class="badge badge-primary">CSS</span>
+                        <span class="badge badge-primary">JavaScript</span>
+                        <span class="badge badge-primary">SQL</span>
+                    </div>
+                </div>
+                <div class="card skill-group fade-in">
+                    <h3>Familiar With</h3>
+                    <div class="badge-container">
+                        <span class="badge badge-secondary">Java</span>
+                        <span class="badge badge-secondary">C</span>
+                        <span class="badge badge-secondary">Kotlin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact Me</h2>
+            <div class="card contact-card fade-in">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="contact-label">Phone</h3>
+                        <p class="contact-value">6382331217</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="contact-label">Email</h3>
+                        <p class="contact-value">swarnalakshmibalakumar25@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year">2025</span> Swarna Lakshmi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements that should fade in
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // Function to check if an element is in viewport
+            const isInViewport = function(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+                );
+            };
+            
+            // Function to handle scroll events
+            const handleScroll = function() {
+                fadeElements.forEach(element => {
+                    if (isInViewport(element)) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Add event listener
+            window.addEventListener('scroll', handleScroll);
+            
+            // Trigger once on load
+            handleScroll();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
